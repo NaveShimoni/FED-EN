@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excellent Students</title>
+</head>
+<body>
+    <script>
+        let students=[
+            {id:123450,name:"Israel Israeli",average:100},
+            {id:123451,name:"David Davidi",average:65.5},
+            {id:123452,name:"Michael Michaeli",average:89.75},
+            {id:123453,name:"Liron Lironi",average:90.2},
+            {id:123454,name:"Eliran Elirani",average:90.75},
+            {id:123455,name:"Matan Matni",average:95},
+            {id:123456,name:"Dan Dani",average:98},
+            {id:123457,name:"Lior Liori",average:94.6},
+            {id:123458,name:"Omer Omeri",average:75},
+            {id:123459,name:"Ofek Ofeki",average:90},
+        ];
+            
+        let excellent_students= students.filter((student)=>student.average>90);
+        
+        document.write("<h1>Excellent Students:</h1>");
+        excellent_students.forEach((student) => {
+        document.write(`<p>ID: ${student.id}, Name: ${student.name}, Average: ${student.average}</p>`);
+        });
+        
+
+
+    </script>
+</body>
+</html>
