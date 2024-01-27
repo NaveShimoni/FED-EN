@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        input, button {
+            margin: 5px;
+        }
+        div{
+            margin-top: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="num1" placeholder="Enter number">
+    <input type="text" id="num2" placeholder="Enter number">
+    <div>
+    <button onclick="calculate('+')">+</button>
+    <button onclick="calculate('-')">-</button>
+    <button onclick="calculate('*')">*</button>
+    <button onclick="calculate('/')">/</button>
+</div>
+    <h3>Result:</h3>
+    <p id="result">Result will be displayed here</p>
+
+    <script>
+        function calculate(operator) {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+
+            var resultElement = document.getElementById("result");
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                switch (operator) {
+                    case '+':
+                        resultElement.textContent = num1 + num2;
+                        break;
+                    case '-':
+                        resultElement.textContent = num1 - num2;
+                        break;
+                    case '*':
+                        resultElement.textContent = num1 * num2;
+                        break;
+                    case '/':
+                        if (num2 !== 0) {
+                            resultElement.textContent = num1 / num2;
+                        } else {
+                            resultElement.textContent = "Error: Division by zero";
+                        }
+                        break;
+                    default:
+                        resultElement.textContent = "Invalid operator";
+                }
+            } else {
+                resultElement.textContent = "Invalid input";
+            }
+        }
+    </script>
+
+</body>
+</html>
