@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Simple Ajax Sample</title>
+    <script>
+        function check_username(username) {
+            fetch(`AjaxIntroduction.php?username=${username}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('msg').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form action="formprocess.php" method="get">
+        Username: <input name="username" type="text" onkeyup="check_username(this.value)" />
+        <br>
+        <div id='msg'></div>
+        <input type="submit">
+    </form>
+</body>
+</html>
