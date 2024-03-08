@@ -1,3 +1,8 @@
+/*
+Students: Nave Shimoni 207382987
+          Zohar Sabag 209494111
+*/
+
 import React, { useState,useEffect } from 'react';
 import idb from './idb';
 import './calories-report.css';
