@@ -5,7 +5,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
 }
 
 .container {
@@ -14,10 +14,15 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  height: auto;
+  margin:10px;
+  width: 600px;
 }
 
 h1 {
   color: #333;
+  margin-bottom: 40px;
 }
 
 label {
@@ -25,21 +30,36 @@ label {
   margin: 10px 0;
 }
 
+span {
+ min-width: 10px;
+}
+
 input,
-select,
-button {
+select{
   margin: 5px;
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  width:9rem;
+  box-sizing: border-box;
 }
 
 button {
   background-color: #4caf50;
   color: #fff;
   cursor: pointer;
+  margin: 5px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 button:hover {
   background-color: #45a049;
+}
+
+.seperate-line{
+  background-color: #333;
+  height: 0.5px;
+  margin-top: 20px;
 }

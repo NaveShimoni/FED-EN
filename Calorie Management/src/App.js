@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import idb from './idb';
-import CalorieReport from './calorie-report';
+import CaloriesReport from './calories-report';
 import './App.css';
 
 const App = () => {
   const [calorie, setCalorie] = useState('');
-  const [category, setCategory] = useState('Breakfast');
+  const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [resultMessage, setResultMessage] = useState('');
   
@@ -36,37 +36,41 @@ const App = () => {
     if (result) {
       console.log('Calories added successfully:', result);
       setResultMessage('Calories added successfully');
-      // Add additional feedback to the user if needed
     } else {
       console.error('Failed to add calories');
       // Provide feedback to the user about the failure
     }
   };
 
+
   return (
     <div className='container'>
-      <h1>Calorie Management Application</h1>
-      <label>
-        Calories:
+      <h1>Calories Management Application</h1>
+      <h2>Add a product</h2>
+      <label className='input-label'>
+        <span>Calories:</span>
         <input type='number' value={calorie} onChange={(e) => setCalorie(e.target.value)} />
       </label>
       <label>
-        Category:
+      <span>Category:</span>
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option value='Breakfast'>Breakfast</option>
-          <option value='Lunch'>Lunch</option>
-          <option value='Dinner'>Dinner</option>
-          <option value='Other'>Other</option>
+        <option value=''>--Select--</option>
+          <option value='BREAKFAST'>Breakfast</option>
+          <option value='LUNCH'>Lunch</option>
+          <option value='DINNER'>Dinner</option>
+          <option value='OTHER'>Other</option>
         </select>
       </label>
       <label>
-        Description:
+      <span>Description:</span>
         <input type='text' value={description} onChange={(e) => setDescription(e.target.value)} />
       </label>
       <button onClick={handleAddCalories}>Add Calories</button>
       <div style={{ color: resultMessage.includes('successfully') ? 'green' : 'red' }}>{resultMessage}</div>
 
-      <CalorieReport />
+      <div className='seperate-line'></div>
+      
+      <CaloriesReport />
 
     </div>
   );

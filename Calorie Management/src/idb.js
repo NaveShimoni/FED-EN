@@ -11,8 +11,7 @@ class IndexedDB {
       
           request.onupgradeneeded = (event) => {
             const db = event.target.result;
-            const objectStore = db.createObjectStore(this.objectStoreName, { autoIncrement: true });
-           // objectStore.createIndex('date', ['year', 'month']);
+            db.createObjectStore(this.objectStoreName, { autoIncrement: true });
           };
       
           request.onsuccess = (event) => {
