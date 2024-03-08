@@ -1,0 +1,45 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #333;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+}
+
+input,
+select,
+button {
+  margin: 5px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
