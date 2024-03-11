@@ -24,40 +24,10 @@ const CaloriesReport = () => {
       return;
     }
 
-
-    try {
       const db = await idb.openCaloriesDB('caloriesdb', 1);
-      const transaction = db.transaction('calories');
-      const store = transaction.objectStore('calories');
-  
-      const request = store.openCursor();
-      const newReport = [];
-      request.onerror = function(event) {};
-      request.onsuccess = (event) => {
-        const cursor = event.target.result;
-        if (cursor) {
-            if(cursor.value.year==year && cursor.value.month==month) 
-            {
-            newReport.push(cursor.value);
-            }
-            cursor.continue();
-        } else {
-
-          setReport(newReport);
-
-        }
-       
-      };
-  
-
-      request.onerror = (event) => {
-        console.error('Error fetching report:', event.target.error);
-        // Provide feedback to the user about the failure
-      };
-    } catch (error) {
-      console.error('Error opening database:', error);
-      // Provide feedback to the user about the failure
-    }
+      const result= await db.generateReport(year,month);
+      setReport(result);
+     
   };
 
   useEffect(() => {

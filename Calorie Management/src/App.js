@@ -27,6 +27,7 @@ const App = () => {
       return;
     }
 
+    //Properties of the product
     const currentDate = new Date();
     const calorieData = {
       year: currentDate.getFullYear(),
@@ -36,7 +37,8 @@ const App = () => {
       description,
     };
   
-    const result = await idb.addCalories(calorieData);
+    const db = await idb.openCaloriesDB('caloriesdb', 1);
+    const result= await db.addCalories(calorieData);
   
     if (result) {
       console.log('Calories added successfully:', result);
